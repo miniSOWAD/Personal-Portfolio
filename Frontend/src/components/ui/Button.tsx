@@ -1,0 +1,67 @@
+'use client';
+
+import { motion, HTMLMotionProps } from 'framer-motion';
+import { forwardRef } from 'react';
+import { Loader2 } from 'lucide-react';
+
+export interface ButtonProps extends Omit<HTMLMotionProps<"button">, "children"> {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger';
+  size?: 'sm' | 'md' | 'lg';
+  isLoading?: boolean;
+  children?: React.ReactNode; 
+}
+
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      className = '',
+      variant = 'primary',
+      size = 'md',
+      isLoading = false,
+      children,
+      disabled,
+      ...props
+    },
+    ref
+  ) => {
+    const baseStyles = 'inline-flex items-center justify-center font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-60 disabled:pointer-events-none origin-center';
+    
+    const variants = {
+      primary: 'bg-[#5f91a0] text-white hover:bg-[#4f8294] focus:ring-[#78bac5] shadow-sm',
+      secondary: 'bg-slate-100 text-slate-900 hover:bg-slate-200 focus:ring-slate-500',
+      outline: 'border border-slate-300 text-slate-700 bg-transparent hover:bg-slate-50 focus:ring-slate-500',
+      ghost: 'text-slate-700 bg-transparent hover:bg-slate-100 focus:ring-slate-500',
+      danger: 'bg-[#5f91a0] text-white hover:bg-[#4f8294] focus:ring-[#78bac5] shadow-sm',
+    };
+
+    const sizes = {
+      sm: 'h-8 px-3 text-xs',
+      md: 'h-10 px-4 text-sm',
+      lg: 'h-12 px-6 text-base',
+    };
+
+    const combinedClasses = [
+      baseStyles,
+      variants[variant],
+      sizes[size],
+      className
+    ].filter(Boolean).join(' ');
+
+    return (
+      <motion.button
+        ref={ref}
+        className={combinedClasses}
+        disabled={disabled || isLoading}
+        whileHover={{ scale: disabled || isLoading ? 1 : 1.02 }}
+        whileTap={{ scale: disabled || isLoading ? 1 : 0.97 }}
+        transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+        {...props}
+      >
+        {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+        {children}
+      </motion.button>
+    );
+  }
+);
+
+Button.displayName = 'Button';

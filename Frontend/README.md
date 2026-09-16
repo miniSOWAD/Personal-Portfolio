@@ -99,3 +99,12 @@ The project is pinned to Next.js 15.5.25 with React 19.0.0. If dependencies were
 - As the article body grows and the editor scrolls, formatting, media, table, link, and LaTeX controls stay pinned at the top of the editor viewport.
 - The toolbar remains horizontally scrollable on narrow phones while staying pinned vertically.
 - No backend or article payload format changes are required.
+
+
+## v5.2.0 split publication/custom landing rail
+
+- Split the tall landing-page right rail into two responsive cards: **Recent publications** and a configurable **Custom Section**.
+- Added Admin → **Custom Section** with a custom header plus ordered content items. Each item has a required name and can include a description, a link, or both.
+- Description-backed items open in a floating detail panel on the public landing page; link-only items open the saved URL directly.
+- Custom items can be added, removed, and reordered from the dashboard.
+- Custom-section data is stored through the existing portfolio metadata record, so no FastAPI route or database change is required.

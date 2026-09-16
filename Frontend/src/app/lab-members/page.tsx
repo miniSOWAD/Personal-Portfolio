@@ -18,7 +18,7 @@ export default async function LabMembersPage() {
           <div className="max-w-4xl">
             <p className="eyebrow">Lab members</p>
             <h1 className="mt-4 font-serif text-4xl font-bold tracking-[-0.04em] sm:text-5xl lg:text-6xl">People behind the lab and the platform.</h1>
-            <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">Acknowledging the developers who built this portal and the students officially labelled as members of the lab.</p>
+            <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">Acknowledging the developers who built this portal and the students, officially the members of the lab.</p>
           </div>
         </div>
       </section>
@@ -29,7 +29,7 @@ export default async function LabMembersPage() {
         <div className="mb-7 max-w-3xl sm:mb-9">
           <p className="eyebrow">Lab members</p>
           <h2 className="mt-3 font-serif text-3xl font-bold tracking-[-0.035em] text-slate-900 sm:text-4xl">Current member profiles</h2>
-          <p className="mt-3 text-sm leading-7 text-slate-600 sm:text-base">Students shown here have been specifically labelled as lab members by an administrator or moderator.</p>
+          <p className="mt-3 text-sm leading-7 text-slate-600 sm:text-base">Students shown here have been specifically considered as lab members by Dr. Tania Islam. Their contributions to the lab are greatly appreciated.</p>
         </div>
 
         {members.length ? (

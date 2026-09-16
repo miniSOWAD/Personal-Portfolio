@@ -112,3 +112,10 @@ Developer photos are loaded from:
 If either photo is missing, the UI uses an initials placeholder. Add the real files using those exact names before deployment.
 
 Admin and Moderator can label/unlabel active students from **Students**. The public page only loads students with `is_lab_member = true`.
+
+## v5.4.0 – Custom landing section
+
+- Split the right-side landing rail into Recent publications and a dashboard-managed Custom Section.
+- Added Admin > Custom Section for a custom header and ordered content items.
+- Each item supports a name plus description, link, or both; description items open in a modal and link-only items open directly.
+- Custom-section data is stored through the existing portfolio metadata payload, so no additional backend endpoint is required.

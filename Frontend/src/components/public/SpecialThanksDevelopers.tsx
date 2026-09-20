@@ -73,7 +73,7 @@ function DeveloperPortrait({ developer }: { developer: DeveloperCredit }) {
     <img
       src={developer.image}
       alt={developer.name}
-      className="aspect-[16/9] max-h-56 w-full bg-[#edf6ff] object-cover object-center"
+      className="h-44 w-full bg-[#edf6ff] object-contain object-center sm:h-48"
       onError={() => setFailed(true)}
     />
   );
@@ -120,9 +120,9 @@ export default function SpecialThanksDevelopers() {
                   </span>
                 </div>
 
-                <p className="mt-5 text-sm leading-7 text-slate-600 sm:text-[15px]">{developer.brief}</p>
+                <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-[15px]">{developer.brief}</p>
 
-                <div className="mt-5 grid gap-2 sm:grid-cols-2">
+                <div className="mt-4 grid gap-2 sm:grid-cols-2">
                   {developer.responsibilities.map((item, itemIndex) => {
                     const icons = [Database, KeyRound, Layers3, Code2];
                     const Icon = icons[itemIndex % icons.length];
@@ -138,7 +138,7 @@ export default function SpecialThanksDevelopers() {
                 <button
                   type="button"
                   onClick={() => setSelected(developer)}
-                  className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-xl border border-[#cde3ea] bg-[#dff7f6] px-4 py-2.5 text-sm font-bold text-[#4f8294] transition hover:bg-[#cdeff0]"
+                  className="mt-4 inline-flex min-h-10 items-center gap-2 rounded-xl border border-[#cde3ea] bg-[#dff7f6] px-4 py-2.5 text-sm font-bold text-[#4f8294] transition hover:bg-[#cdeff0]"
                 >
                   See more <ExternalLink className="h-4 w-4" />
                 </button>

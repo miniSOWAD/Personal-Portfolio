@@ -137,12 +137,11 @@ export default function ResearcherPortfolioHero({ portfolio, media, articles }: 
                 href={href!}
                 target="_blank"
                 rel="noreferrer"
-                title={label}
                 aria-label={label}
                 className="group relative grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[#cde3ea] bg-[#fffdfb] text-[#547a8b] shadow-sm transition hover:-translate-y-0.5 hover:border-[#a9d7df] hover:bg-[#dff7f6] hover:text-[#3f7081]"
               >
                 <Icon className="h-[18px] w-[18px]" />
-                <span className="pointer-events-none absolute left-[52px] z-20 hidden whitespace-nowrap rounded-lg bg-slate-800 px-2.5 py-1.5 text-[11px] font-semibold text-white shadow-xl group-hover:lg:block">{label}</span>
+                <span className="pointer-events-none absolute left-[52px] z-[100] hidden whitespace-nowrap rounded-lg bg-[#dff7f6] px-2.5 py-1.5 text-[11px] font-semibold text-[#527f8f] shadow-xl border border-[#cde3ea] group-hover:lg:block">{label}</span>
               </a>
             ))}
           </div>

@@ -73,7 +73,7 @@ function DeveloperPortrait({ developer }: { developer: DeveloperCredit }) {
     <img
       src={developer.image}
       alt={developer.name}
-      className="h-44 w-full bg-[#edf6ff] object-contain object-center sm:h-48"
+      className="h-64 w-full bg-[#edf6ff] object-contain object-center sm:h-72"
       onError={() => setFailed(true)}
     />
   );

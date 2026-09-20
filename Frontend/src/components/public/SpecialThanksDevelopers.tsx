@@ -73,7 +73,7 @@ function DeveloperPortrait({ developer }: { developer: DeveloperCredit }) {
     <img
       src={developer.image}
       alt={developer.name}
-      className="aspect-[4/3] w-full bg-[#edf6ff] object-cover object-center"
+      className="aspect-[16/9] max-h-56 w-full bg-[#edf6ff] object-cover object-center"
       onError={() => setFailed(true)}
     />
   );
@@ -105,14 +105,14 @@ export default function SpecialThanksDevelopers() {
           <p className="mt-3 text-sm leading-7 text-slate-600 sm:text-base">The platform was built through dedicated backend engineering and frontend integration work.</p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-5 md:grid-cols-2">
           {developers.map((developer, index) => (
             <article key={developer.id} className="academic-card overflow-hidden">
               <DeveloperPortrait developer={developer} />
-              <div className="p-5 sm:p-7">
+              <div className="p-4 sm:p-5">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
-                    <h3 className="font-serif text-2xl font-bold tracking-[-0.025em] text-slate-900 sm:text-3xl">{developer.name}</h3>
+                    <h3 className="font-serif text-xl font-bold tracking-[-0.025em] text-slate-900 sm:text-2xl">{developer.name}</h3>
                     <p className="mt-1 text-sm font-semibold text-[#527f8f]">{developer.role}</p>
                   </div>
                   <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-[#cfe1ea] bg-[#edf6ff] text-[#5f91a0]">

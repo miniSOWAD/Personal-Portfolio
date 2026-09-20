@@ -1,5 +1,6 @@
 import { Download, FileText, FolderOpen } from 'lucide-react';
 import MainLayout from '../../components/MainLayout';
+import { cookies } from 'next/headers';
 import { getRepositoryDocuments } from '../../lib/public-api';
 
 export const metadata = { title: 'Research Resources', description: 'Shared academic documents and research resources.' };
@@ -10,6 +11,13 @@ function getExtension(name: string) {
 }
 
 export default async function RepositoriesPage() {
+  const cookieStore = await cookies();
+  const role = cookieStore.get('user_role')?.value?.toUpperCase();
+  const status = cookieStore.get('user_status')?.value?.toUpperCase();
+  const allowed = ['ADMIN','MODERATOR','STUDENT'].includes(role || '') && status !== 'PENDING';
+  if (!allowed) {
+    return <MainLayout><section className="page-shell py-16"><div className="academic-card px-6 py-12 text-center"><h1 className="font-serif text-3xl font-bold">Resource access restricted</h1><p className="mt-3 text-slate-600">Resources are available only for approved students, moderators and administrators.</p></div></section></MainLayout>;
+  }
   const documents = await getRepositoryDocuments();
 
   return (

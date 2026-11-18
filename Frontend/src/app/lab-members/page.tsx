@@ -1,15 +1,17 @@
-import { AtSign, GraduationCap, Mail, MapPin, Phone, UsersRound } from 'lucide-react';
+import { cookies } from 'next/headers';
 import LabMembersTabs from '../../components/public/LabMembersTabs';
 import MainLayout from '../../components/MainLayout';
-import { getLabMembers } from '../../lib/public-api';
+import { getLabMemberDirectory } from '../../lib/public-api';
 
 export const metadata = {
   title: 'Lab Members',
-  description: 'Developers and labelled lab members connected to Dr. Tania Islam’s academic work.',
+  description: 'Current students, alumni and contributors connected to Dr. Tania Islam’s academic work.',
 };
 
 export default async function LabMembersPage() {
-  const members = await getLabMembers();
+  const cookieStore = await cookies();
+  const accessToken = cookieStore.get('token')?.value || null;
+  const { members, alumni } = await getLabMemberDirectory(accessToken);
 
   return (
     <MainLayout>
@@ -22,7 +24,7 @@ export default async function LabMembersPage() {
           </div>
         </div>
       </section>
-      <LabMembersTabs members={members} />
+      <LabMembersTabs members={members} alumni={alumni} />
     </MainLayout>
   );
 }

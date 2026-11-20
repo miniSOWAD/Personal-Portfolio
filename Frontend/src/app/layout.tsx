@@ -6,7 +6,7 @@ import './globals.css';
 export const metadata: Metadata = {
   title: {
     template: '%s | Dr. Tania Islam',
-    default: 'Dr. Tania Islam | Academic Research Portfolio',
+    default: 'ICAI Lab | Intelligent Computing and AI Research Lab',
   },
   description: 'Research portfolio, publications, scholarly resources, collaboration network, and lab members.',
   applicationName: 'Dr. Tania Islam',
